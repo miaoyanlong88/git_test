@@ -8,19 +8,6 @@
  */
 spl_autoload_register('autoload1');
 spl_autoload_register('autoload2');
-
-
-
-
-
-
-
-
-
-
-
-
-
 Test1::test();
 Test2::test();
 
