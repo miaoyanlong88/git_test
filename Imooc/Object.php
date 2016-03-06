@@ -13,4 +13,9 @@ class Object
     {
         echo __METHOD__;
     }
+
+    static function Mydump($data){
+        echo "<pre/>";
+        print_r($data);exit;
+    }
 }

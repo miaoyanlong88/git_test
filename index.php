@@ -8,6 +8,8 @@
 define('BASEDIR',__DIR__);
 include BASEDIR.'/Imooc/Loader.php';
 use Test\Test;
+use Imooc\Object;
+use Imooc\Factory;
 
 spl_autoload_register('\\Imooc\\Loader::autoload');
 
@@ -53,4 +55,35 @@ $array[9] = 6666;
 
 $model = new Test();
 $data = $model->where('12')->order('23');
-print_r($data);
+//print_r($data);
+
+/*
+ * 工厂模式
+ * 使用工厂方法或者类来生成对象
+ * 而不是在代码中直接new
+ */
+//$db = Factory::createDatabases();
+//Object::Mydump($db->test());
+
+/**
+ * 单例模式
+ * 使某个类或对象只允许创建一个
+ */
+//$db = \Imooc\Databases::getInstance();
+
+/**
+ * 注册模式
+ * 用了将一个对象注册到全局的树上面  用来被任何地方直接去访问
+ */
+//$db = \Imooc\Register::get('db1');
+
+/**
+ * 适配模式
+ */
+
+$db = new Imooc\Databases\MySql();
+$db->connect('127.0.0.1','root','123456','test');
+$db->query('show databases');
+$db->close();
+
+
